@@ -1,0 +1,13 @@
+    private String getExpectedReport() {
+        try {
+            Path path = Paths.get(getClass().getClassLoader()
+                    .getResource("Testfile.txt").toURI());
+            byte[] fileBytes = new byte[0];
+            fileBytes = Files.readAllBytes(path);
+            String expected = new String(fileBytes);
+            expected = expected.replaceAll("\\r\\n", "\n");
+            return expected;
+        } catch (IOException | URISyntaxException e) {
+            return null;
+        }
+    }
