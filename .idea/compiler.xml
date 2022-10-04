@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="07b-deps-and-testing" />
         <module name="06B Testing og avhengigheter 02" />
       </profile>
     </annotationProcessing>

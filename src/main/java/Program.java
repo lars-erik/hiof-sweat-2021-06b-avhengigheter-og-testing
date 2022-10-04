@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Program {
     public static void main(String[] args) throws IOException {
-        final String path = "C:\\Users\\lars-\\source\\hiof\\06B Testing og avhengigheter 02\\data\\stocks.csv";
+        final String path = "C:\\Users\\bi-lea\\IdeaProjects\\07b-deps-and-testing\\data\\stocks.csv";
 
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
