@@ -1,13 +1,18 @@
-    private String getExpectedReport() {
-        try {
-            Path path = Paths.get(getClass().getClassLoader()
-                    .getResource("Testfile.txt").toURI());
-            byte[] fileBytes = new byte[0];
-            fileBytes = Files.readAllBytes(path);
-            String expected = new String(fileBytes);
-            expected = expected.replaceAll("\\r\\n", "\n");
-            return expected;
-        } catch (IOException | URISyntaxException e) {
-            return null;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.*;
+import java.util.*;
+
+public class FakeRecordGateway {
+    private List<String[]> getExpectedReport() throws URISyntaxException, IOException {
+        Path path = Paths.get(getClass().getClassLoader().getResource("StubStockData.csv").toURI());
+        byte[] fileBytes = Files.readAllBytes(path);
+        String[] lines = new String(fileBytes).split("\\r\\n");
+        List<String[]> records = new ArrayList<>();
+        for (String line : lines) {
+            String[] values = line.split(";");
+            records.add(values);
         }
+        return records;
     }
+}
